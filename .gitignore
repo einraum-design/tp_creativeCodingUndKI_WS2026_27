@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# lokale Editor-/Tool-Einstellungen
+.claude/
+.vscode/

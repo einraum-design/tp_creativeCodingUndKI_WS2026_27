@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP Creative Coding und KI – Kursdokumentation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Seitenleiste mit Navigation: ein Menüpunkt pro Termin -->
+  <header class="sidebar">
+    <a class="logo" href="#start">
+      <span class="logo-kicker">TP</span>
+      Creative Coding<br>und KI
+    </a>
+
+    <nav aria-label="Termine">
+      <ol class="menu">
+        <li><a href="#termin-1"><time datetime="2026-10-23">23.10.</time> Web-Basics: HTML und CSS</a></li>
+        <!-- <li><a href="#termin-3"><time datetime="2026-10-30">30.10.</time> Bewegung</a></li>
+        <li><a href="#termin-4"><time datetime="2026-11-06">06.11.</time> Schleifen</a></li>
+        <li><a href="#termin-5"><time datetime="2026-11-13">13.11.</time> Zufall &amp; Noise</a></li>
+        <li><a href="#termin-6"><time datetime="2026-11-20">20.11.</time> Bilder &amp; Pixel</a></li>
+        <li><a href="#termin-7"><time datetime="2026-11-27">27.11.</time> KI-Werkzeuge</a></li>
+        <li><a href="#termin-8"><time datetime="2026-12-04">04.12.</time> Abschluss</a></li> -->
+      </ol>
+    </nav>
+
+    <p class="sidebar-footer">Wintersemester 2026/27</p>
+  </header>
+
+  <main>
+
+    <!-- Intro -->
+    <section id="start" class="intro">
+      <p class="eyebrow">Kursdokumentation</p>
+      <h1>TP Creative Coding und KI</h1>
+      <p class="lead">
+        Hier sammeln wir die Inhalte, Beispiele und Ergebnisse aus allen Terminen.
+        Jeder Block steht für einen Kurstag – über das Menü links springst du direkt zum gewünschten Datum.
+      </p>
+
+      <!-- Beispiele: jeder Ordner im Repository ist ein eigenes Beispiel.
+           Relative Links (../ordner/) funktionieren lokal und auf GitHub Pages.
+           Neue Beispiele einfach hier einkommentieren bzw. ergänzen. -->
+      <h3>Beispiele</h3>
+      <ul class="links">
+        <li><a href="../01_html_css/">01 · HTML und CSS (diese Seite)</a></li>
+        <!-- <li><a href="../02_p5js/">02 · p5.js Grundlagen</a></li> -->
+        <!-- <li><a href="../03_p5js2/">03 · p5.js Teil 2</a></li> -->
+      </ul>
+    </section>
+
+    <!-- Termin 1 -->
+    <article id="termin-1" class="block">
+      <header class="block-header">
+        <time datetime="2026-10-23">Fr, 23. Oktober 2026</time>
+        <h2>Web-Basics: HTML und CSS</h2>
+      </header>
+      <p>
+        Kennenlernen, Kursüberblick und die Grundlagen von HTML und CSS als Basis für alle weiteren Sketches im Browser.
+      </p>
+
+      <!-- HTML -->
+      <h3>HTML – Hypertext Markup Language</h3>
+      <p>
+        Ein HTML-Dokument enthält die Textinhalte und Verlinkungen zu Bildern, Videos und weiteren Multimedia-Inhalten.
+        Eine HTML-Seite besteht aus einem <code>head</code>- und einem <code>body</code>-Bereich.
+        Die Seite wird mit „HTML-Tags“ aufgebaut und gegliedert.
+      </p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="de-DE"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Titel der Webseite&lt;/title&gt;
+
+        &lt;!-- Angabe der Zeichencodierung – damit Sonderzeichen, z. B. Umlaute, richtig dargestellt werden --&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+
+        &lt;!-- hier können Stylesheets, Skripte und Bibliotheken verknüpft werden … --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Inhalt der Webseite, der im Browserfenster zu sehen ist --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h4>Inhalte auszeichnen</h4>
+      <p>
+        Auch die Inhalte werden mit Tags ausgezeichnet und gegliedert. Eine Überschrift wird beispielsweise
+        von einem öffnenden und einem schließenden <code>h1</code>-Tag (Headline 1. Ordnung) umschlossen:
+      </p>
+      <pre><code>&lt;h1&gt;Inhalt der Überschrift&lt;/h1&gt;</code></pre>
+      <p>
+        Es gibt vorgegebene Tags für unterschiedliche Inhalte, z. B. Überschriften: <code>&lt;h1&gt;</code>,
+        <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code> … oder Textabsätze: <code>&lt;p&gt;&lt;/p&gt;</code>.
+        Mehrere Elemente lassen sich mit <code>&lt;div&gt;&lt;/div&gt;</code>-Blöcken gruppieren und strukturieren.
+        Teile innerhalb eines Inhalts lassen sich mit Elementen markieren:
+      </p>
+      <pre><code>&lt;p&gt;Ein Textabsatz kann beliebig lang sein. Einzelne Textteile können mit einem &lt;span&gt;span-Element&lt;/span&gt; markiert werden.&lt;/p&gt;</code></pre>
+
+      <h4>Bilder</h4>
+      <p>
+        Für Medieninhalte wie Bilder gibt es eigene Elemente. Mit dem <code>img</code>-Element wird ein Bild in die Seite eingebunden:
+      </p>
+      <pre><code>&lt;img src="Dateipfad/des/Bildes/bild.jpg" alt="Beschreibung des Bildinhalts für Lesegeräte" /&gt;</code></pre>
+      <p>
+        Das <code>img</code>-Element hat keinen Inhalt zwischen öffnendem und schließendem Tag – der Bildpfad ist ein
+        Attribut innerhalb des Tags. Deshalb wird es nicht mit <code>&lt;/img&gt;</code> geschlossen,
+        sondern direkt im ersten Tag mit einem <code>/</code> beendet.
+      </p>
+
+      <h4>Links</h4>
+      <p>
+        Die Besonderheit der „Hypertext“ Markup Language sind die Verlinkungen zwischen unterschiedlichen Webseiten.
+        Dafür gibt es das <code>a</code>-Tag. Damit kann auf andere Webseiten oder auf Stellen innerhalb einer Seite verlinkt werden.
+        Das Attribut <code>href</code> legt das Ziel des Links fest, <code>target</code> gibt an, ob die Zielseite
+        im gleichen oder in einem neuen Tab geöffnet wird.
+      </p>
+      <pre><code>&lt;!-- externer Link, öffnet in einem neuen Tab --&gt;
+&lt;a href="https://p5js.org" target="_blank"&gt;Link zu einer anderen Webseite&lt;/a&gt;
+
+&lt;!-- Link auf eine weitere Seite im gleichen Verzeichnis --&gt;
+&lt;a href="seite2.html"&gt;Link zu Seite 2&lt;/a&gt;
+
+&lt;!-- Link zu einer ID innerhalb der Seite --&gt;
+&lt;!-- Damit der Link funktioniert, muss die ID irgendwo auf der Seite vergeben sein, z. B. &lt;div id="ziel"&gt; --&gt;
+&lt;a href="#ziel"&gt;Link zu einer Stelle auf dieser Seite&lt;/a&gt;</code></pre>
+
+      <!-- CSS -->
+      <h3>CSS – Cascading Style Sheets</h3>
+      <p>
+        Mit Stylesheets wird die Erscheinung der Webseite gesteuert: Farben, Abstände, Schriftarten, Größen usw.
+        Styles können an unterschiedlichen Stellen geschrieben werden.
+      </p>
+
+      <h4>Direkt im HTML</h4>
+      <pre><code>&lt;p style="color: #ff0000"&gt;Ein Textabsatz&lt;/p&gt;</code></pre>
+
+      <h4>Im head-Bereich der Seite</h4>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="de-DE"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Titel der Webseite&lt;/title&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+
+        &lt;!-- hier können Style-Regeln definiert werden: --&gt;
+        &lt;style type="text/css"&gt;
+            #content {
+                background-color: rgb(224, 224, 224);
+                padding: 15px;
+                border: 3px solid #333333;
+                margin: 30px;
+            }
+            h1, h2, h3, * {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Inhalt der Webseite, der im Browserfenster zu sehen ist --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h4>Als eigene .css-Datei</h4>
+      <p>
+        Eine eigenständige CSS-Datei wird im <code>head</code>-Bereich der Seite verknüpft.
+        Der Vorteil: Die Datei kann für viele Seiten verwendet werden.
+      </p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="de-DE"&gt;
+    &lt;head&gt;
+        &lt;link rel="stylesheet" href="style.css" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Inhalt der Webseite, der im Browserfenster zu sehen ist --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h4>CSS-Regeln</h4>
+      <p>
+        Mit CSS lassen sich auf viele Arten Regeln für die Gestaltung der HTML-Inhalte definieren,
+        z. B. eine Schriftart und Schriftfarbe für alle <code>p</code>-Elemente:
+      </p>
+      <pre><code>p {
+    color: rgb(20, 20, 20);
+    font-family: Arial, Helvetica, sans-serif;
+}</code></pre>
+
+      <h3>Ressourcen</h3>
+      <ul class="links">
+        <li><a href="https://developer.mozilla.org/de/docs/Web/HTML">MDN – HTML</a></li>
+        <li><a href="https://developer.mozilla.org/de/docs/Web/CSS">MDN – CSS</a></li>
+      </ul>
+    </article>
+
+    <!-- Termin 2 -->
+    <!-- <article id="termin-2" class="block">
+      <header class="block-header">
+        <time datetime="2026-10-23">Fr, 23. Oktober 2026</time>
+        <h2>p5.js Grundlagen: Formen &amp; Farbe</h2>
+      </header>
+              <li>Editor und p5.js einrichten</li>
+
+      <p>
+        Das Koordinatensystem der Leinwand, einfache Grundformen und der Umgang mit Farbe.
+      </p>
+      <pre><code>function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(240);
+  fill(255, 80, 60);
+  circle(200, 200, 120);
+}</code></pre>
+      <h3>Aufgabe</h3>
+      <p>Gestalte ein Porträt nur aus Kreisen, Rechtecken und Linien.</p>
+      <h3>Beispiel</h3>
+      <ul class="links">
+        <li><a href="../02_p5js/">Beispiel im Browser öffnen</a></li>
+        <li><a href="https://github.com/einraum-design/tp_creativeCodingUndKI_WS2026_27/tree/main/02_p5js">Code auf GitHub ansehen</a></li>
+      </ul>
+    </article>
+
+    <article id="termin-3" class="block">
+      <header class="block-header">
+        <time datetime="2026-10-30">Fr, 30. Oktober 2026</time>
+        <h2>Variablen, Bewegung &amp; Interaktion</h2>
+      </header>
+      <p>
+        Mit Variablen bringen wir Dinge in Bewegung. Maus und Tastatur werden zu Eingaben für den Sketch.
+      </p>
+      <h3>Inhalte</h3>
+      <ul>
+        <li>Variablen und der <code>draw()</code>-Loop</li>
+        <li><code>mouseX</code>, <code>mouseY</code>, <code>keyPressed()</code></li>
+        <li>Bedingungen mit <code>if</code></li>
+      </ul>
+    </article>
+
+    <article id="termin-4" class="block">
+      <header class="block-header">
+        <time datetime="2026-11-06">Fr, 6. November 2026</time>
+        <h2>Schleifen &amp; generative Muster</h2>
+      </header>
+      <p>
+        Wiederholung als gestalterisches Mittel: Raster, Reihen und Muster mit <code>for</code>-Schleifen.
+      </p>
+      <figure class="placeholder">
+        <figcaption>Platz für ein Bild oder einen Screenshot</figcaption>
+      </figure>
+    </article>
+
+    <article id="termin-5" class="block">
+      <header class="block-header">
+        <time datetime="2026-11-13">Fr, 13. November 2026</time>
+        <h2>Zufall &amp; Noise</h2>
+      </header>
+      <p>
+        Der Unterschied zwischen <code>random()</code> und <code>noise()</code> – und wie kontrollierter Zufall
+        organisch wirkende Formen erzeugt.
+      </p>
+      <h3>Aufgabe</h3>
+      <p>Entwirf eine generative Landschaft mit Perlin Noise.</p>
+    </article>
+
+    <article id="termin-6" class="block">
+      <header class="block-header">
+        <time datetime="2026-11-20">Fr, 20. November 2026</time>
+        <h2>Bilder, Pixel &amp; Daten</h2>
+      </header>
+      <p>
+        Bilder laden, Pixel auslesen und verändern. Erste Schritte mit externen Daten (CSV, JSON).
+      </p>
+      <h3>Inhalte</h3>
+      <ul>
+        <li><code>loadImage()</code> und <code>get()</code></li>
+        <li>Pixel-Arrays und Filter</li>
+        <li>Daten visualisieren</li>
+      </ul>
+    </article>
+
+    <article id="termin-7" class="block">
+      <header class="block-header">
+        <time datetime="2026-11-27">Fr, 27. November 2026</time>
+        <h2>KI-Werkzeuge im kreativen Prozess</h2>
+      </header>
+      <p>
+        Wie können KI-Modelle Teil eines kreativen Workflows sein? Wir testen Bild- und Körpererkennung
+        im Browser und reflektieren den Einsatz von KI beim Programmieren.
+      </p>
+      <h3>Ressourcen</h3>
+      <ul class="links">
+        <li><a href="https://ml5js.org/">ml5.js</a></li>
+        <li><a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a></li>
+      </ul>
+    </article>
+
+    <article id="termin-8" class="block">
+      <header class="block-header">
+        <time datetime="2026-12-04">Fr, 4. Dezember 2026</time>
+        <h2>Abschlussprojekte &amp; Präsentation</h2>
+      </header>
+      <p>
+        Vorstellung der Abschlussprojekte, gemeinsames Feedback und Ausblick.
+      </p>
+      <figure class="placeholder">
+        <figcaption>Platz für Projektbilder</figcaption>
+      </figure>
+    </article> -->
+
+    <footer class="page-footer">
+      <p>TP Creative Coding und KI · Kursdokumentation</p>
+      <a href="#start">Nach oben ↑</a>
+    </footer>
+
+  </main>
+
+</body>
+</html>
