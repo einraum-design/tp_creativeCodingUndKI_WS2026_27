@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>02 · p5.js Grundlagen</title>
+  <title>03 · Scheuer Kreis</title>
   <!-- p5.js-Bibliothek über ein CDN einbinden -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
   <style>
-    body { margin: 0; background: #f0f0f0; display: grid; place-items: center; min-height: 100vh; }
+    /* Canvas soll das ganze Fenster füllen, ohne Scrollbalken */
+    body { margin: 0; overflow: hidden; background: #f0f0f0; }
+    canvas { display: block; }
   </style>
 </head>
 <body>
-  <!-- p5.js erzeugt die Zeichenfläche (canvas) automatisch -->
   <script src="sketch.js"></script>
 </body>
 </html>

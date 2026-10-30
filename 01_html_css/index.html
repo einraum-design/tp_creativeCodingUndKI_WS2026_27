@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TP Creative Coding und KI – Kursdokumentation</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -18,6 +18,7 @@
     <nav aria-label="Termine">
       <ol class="menu">
         <li><a href="#termin-1"><time datetime="2026-10-23">23.10.</time> Web-Basics: HTML und CSS</a></li>
+        <li><a href="#termin-2"><time datetime="2026-10-30">30.10.</time> p5.js Grundlagen</a></li>
         <!-- <li><a href="#termin-3"><time datetime="2026-10-30">30.10.</time> Bewegung</a></li>
         <li><a href="#termin-4"><time datetime="2026-11-06">06.11.</time> Schleifen</a></li>
         <li><a href="#termin-5"><time datetime="2026-11-13">13.11.</time> Zufall &amp; Noise</a></li>
@@ -40,16 +41,6 @@
         Hier sammeln wir die Inhalte, Beispiele und Ergebnisse aus allen Terminen.
         Jeder Block steht für einen Kurstag – über das Menü links springst du direkt zum gewünschten Datum.
       </p>
-
-      <!-- Beispiele: jeder Ordner im Repository ist ein eigenes Beispiel.
-           Relative Links (../ordner/) funktionieren lokal und auf GitHub Pages.
-           Neue Beispiele einfach hier einkommentieren bzw. ergänzen. -->
-      <h3>Beispiele</h3>
-      <ul class="links">
-        <li><a href="../01_html_css/">01 · HTML und CSS (diese Seite)</a></li>
-        <!-- <li><a href="../02_p5js/">02 · p5.js Grundlagen</a></li> -->
-        <!-- <li><a href="../03_p5js2/">03 · p5.js Teil 2</a></li> -->
-      </ul>
     </section>
 
     <!-- Termin 1 -->
@@ -61,6 +52,11 @@
       <p>
         Kennenlernen, Kursüberblick und die Grundlagen von HTML und CSS als Basis für alle weiteren Sketches im Browser.
       </p>
+
+      <h3>Beispiele</h3>
+      <ul class="links">
+        <li>HTML und CSS (diese Seite): <a href="../01_html_css/" target="_blank">Anwendung</a> · <a href="https://github.com/einraum-design/tp_creativeCodingUndKI_WS2026_27/tree/main/01_html_css" target="_blank">Code</a></li>
+      </ul>
 
       <!-- HTML -->
       <h3>HTML – Hypertext Markup Language</h3>
@@ -190,6 +186,132 @@
       <ul class="links">
         <li><a href="https://developer.mozilla.org/de/docs/Web/HTML">MDN – HTML</a></li>
         <li><a href="https://developer.mozilla.org/de/docs/Web/CSS">MDN – CSS</a></li>
+      </ul>
+    </article>
+
+    <!-- Termin 2 -->
+    <article id="termin-2" class="block">
+      <header class="block-header">
+        <time datetime="2026-10-30">Fr, 30. Oktober 2026</time>
+        <h2>p5.js Grundlagen: Formen, Farbe, setup &amp; draw</h2>
+      </header>
+
+      <h3>Beispiele</h3>
+      <ul class="links">
+        <li>p5.js statisch: <a href="../02_p5js_statisch/" target="_blank">Anwendung</a> · <a href="https://github.com/einraum-design/tp_creativeCodingUndKI_WS2026_27/tree/main/02_p5js_statisch" target="_blank">Code</a></li>
+        <li>p5.js Scheuer-Kreis: <a href="../02_p5js_scheuerKreis/" target="_blank">Anwendung</a> · <a href="https://github.com/einraum-design/tp_creativeCodingUndKI_WS2026_27/tree/main/02_p5js_scheuerKreis" target="_blank">Code</a></li>
+      </ul>
+
+      <!-- Kommentare -->
+      <h3>Kommentare</h3>
+      <p>Kommentare werden beim Ausführen des Programms ignoriert:</p>
+      <pre><code>// einzeiliger Kommentar
+
+/* Block-Kommentar
+   über mehrere Zeilen,
+   um etwas zu erklären
+   oder um einen längeren Teil
+   des Programms auszublenden */</code></pre>
+
+      <!-- Sketchgröße -->
+      <h3>Sketchgröße</h3>
+      <p>
+        Die Größe der Zeichenfläche wird mit der Funktion <code>createCanvas()</code> festgelegt.
+        Der erste Parameter ist die Breite des Sketches, der zweite die Höhe.
+        Alle Größen- und Positionsangaben sind Pixelmaße.
+      </p>
+      <pre><code>createCanvas(800, 600);</code></pre>
+      <p>
+        In bestimmten Fällen wird <code>createCanvas()</code> mit einem dritten Parameter aufgerufen,
+        z. B. wenn eine 3D-Szene gezeigt (<code>WEBGL</code>) oder ein anderer Renderer genutzt werden soll.
+      </p>
+
+      <!-- Shapes -->
+      <h3>Shapes</h3>
+      <h4>Rechtecke</h4>
+      <p>Die Funktion <code>rect()</code> kann aufgerufen werden mit</p>
+      <ul>
+        <li>4 Parametern: <code>xPosition, yPosition, breite, höhe</code></li>
+        <li>5 Parametern: <code>xPosition, yPosition, breite, höhe, eckenRadius</code></li>
+        <li>8 Parametern: <code>xPosition, yPosition, breite, höhe, eckenRadius1, eckenRadius2, eckenRadius3, eckenRadius4</code></li>
+      </ul>
+      <p>
+        Standardmäßig wird das Rechteck von der linken oberen Ecke als Referenzpunkt aus gezeichnet.
+        Mit <code>rectMode()</code> lässt sich das auf Zeichnen von der Mitte aus umstellen:
+      </p>
+      <pre><code>rectMode(CENTER); // alle Rechtecke nach dem Aufruf werden von der Mitte aus gezeichnet
+rectMode(CORNER); // (Standard) alle Rechtecke nach dem Aufruf werden von der linken oberen Ecke aus gezeichnet</code></pre>
+
+      <h4>Ellipsen</h4>
+      <p>
+        Ellipsen werden standardmäßig von der Mitte aus gezeichnet.
+        Mit <code>ellipseMode()</code> lässt sich das auf Zeichnen von der linken oberen Ecke aus umstellen:
+      </p>
+      <pre><code>ellipseMode(CENTER); // (Standard) alle Ellipsen nach dem Aufruf werden von der Mitte aus gezeichnet
+ellipseMode(CORNER); // alle Ellipsen nach dem Aufruf werden von der linken oberen Ecke aus gezeichnet</code></pre>
+      <p>
+        Ein Wechsel von <code>ellipseMode()</code> / <code>rectMode()</code> wirkt sich immer nur auf die
+        <em>nach</em> dem Aufruf gezeichneten Formen aus.
+      </p>
+
+      <h4>Bögen</h4>
+      <p>
+        Hinweis zu <code>arc()</code>: Start- und Endwinkel des Bogens werden nicht in Grad, sondern in Bogenmaß erwartet.
+        Mit der Funktion <code>radians(GRADZAHL)</code> könnt ihr eine Gradzahl in Bogenmaß umrechnen lassen.
+      </p>
+      <pre><code>// arc(xPosition, yPosition, breite, höhe, startwinkel, endwinkel, zeichentyp)
+arc(300, 300, 400, 400, radians(45), radians(360 - 45), PIE);</code></pre>
+
+      <!-- Farben -->
+      <h3>Farben</h3>
+      <p>
+        Standardmäßig werden alle Formen mit weißer Füllfarbe und schwarzer Kontur mit 1&nbsp;px Strichstärke gezeichnet.
+      </p>
+      <p>
+        Um eigene Farben für Formen festzulegen, gibt es die Funktionen <code>fill()</code> und <code>stroke()</code>.
+        Standardmäßig wird das RGB-Farbsystem genutzt, und die Farbwerte werden als Zahlen im 8-Bit-Bereich erwartet: 0–255.
+        (Zahlenbereich und Farbsystem lassen sich mit der Funktion <code>colorMode()</code> umstellen.)
+      </p>
+      <p><code>fill()</code> und <code>stroke()</code> können aufgerufen werden mit</p>
+      <ul>
+        <li>1 Parameter: Grauwert – schwarz bis weiß – 0–255</li>
+        <li>3 Parametern: <code>rotwert, grünwert, blauwert</code> – je 0–255</li>
+        <li>4 Parametern: <code>rotwert, grünwert, blauwert, alpha</code> – je 0–255. Alpha definiert die Transparenz.</li>
+      </ul>
+      <p>
+        <code>fill()</code> und <code>stroke()</code> müssen jeweils festgelegt werden, <em>bevor</em> eine Form gezeichnet wird.
+        Nach einem Aufruf werden alle Formen in diesen Farben gezeichnet, bis <code>fill()</code> oder <code>stroke()</code>
+        mit neuen Werten aufgerufen werden.
+      </p>
+      <p>
+        Mit <code>noFill()</code> und <code>noStroke()</code> lässt sich auch festlegen, dass keine Füllfarbe bzw. keine Kontur gezeichnet wird.
+      </p>
+
+      <!-- setup & draw -->
+      <h3>Grundstruktur: setup &amp; draw</h3>
+      <pre><code>function setup() {
+
+}
+
+function draw() {
+
+}</code></pre>
+      <p>
+        Die beiden Funktionen sind das Grundgerüst jedes p5.js-Sketches. Alles, was im Funktionsrumpf von
+        <code>function setup()</code> – zwischen den geschweiften Klammern – steht, wird beim Programmstart einmal ausgeführt.
+        Hier werden alle Grundeinstellungen für das Programm gesetzt und das Canvas-Element erstellt:
+      </p>
+      <pre><code>createCanvas(600, 400);</code></pre>
+      <p>
+        Nach Ablauf von <code>function setup()</code> wird der Inhalt von <code>function draw()</code> ausgeführt.
+        Alles, was in <code>function draw()</code> steht, wird immer wieder aufs Neue ausgeführt – standardmäßig 60-mal pro Sekunde.
+        <code>function draw()</code> beginnt meistens mit der Funktion <code>background()</code>, die alles aus dem vorherigen
+        Frame übermalt und für jeden neuen Frame eine leere Zeichenfläche bereitstellt.
+      </p>
+
+      <h3>Ressourcen</h3>
+      <ul class="links">
+        <li><a href="https://p5js.org/reference/">p5.js Reference</a></li>
       </ul>
     </article>
 
